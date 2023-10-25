@@ -1,0 +1,16 @@
+/* @media only screen and (max-width: 600px) {
+    .navbar-brand {
+      font-size: 17px !important;
+    }
+  } */
+
+.active {
+    border-bottom: 1px solid white;
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 600px) {
+    .heading {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    }
+}

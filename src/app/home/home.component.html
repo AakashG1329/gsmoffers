@@ -1,0 +1,57 @@
+<div class="searchInput text-end mt-5" style="position: fixed;width: 100%;background-color: antiquewhite;">
+
+    <input type="text" class="inputStyle" [(ngModel)]="searchString" (input)="this.getMobiles()" placeholder="Search..." style="width: 400px;margin: 10px;" autofocus />
+</div>
+
+<div class="products container-fluid">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="loadingStyle" *ngIf="isLoading; else productsTable">
+
+                <div style="color:#0D6EFD" class="la-line-scale la-2x">
+
+                    <div></div>
+
+                    <div></div>
+
+                    <div></div>
+
+                    <div></div>
+
+                    <div></div>
+
+                </div>
+            </div>
+            <!-- | searchName: searchString -->
+            <ng-template #productsTable>
+                <div class="row mt-5 productContainer" style="background-color: antiquewhite;font-family: monospace;margin-top: 96px !important;">
+                    <div class="col-md-3 productWidth" *ngFor="let product of productData.data | searchName: searchString">
+                        <div class="p-2 productCard" style="font-size:13px; width: 100%;height: 97%;background-color:#ffffff;border-radius:5px;">
+                            <div class="text-center"><img src={{product.product_img}} alt="img" width="200" height="200" />
+                            </div>
+                            <div class="dpo">
+
+
+                                <div>Discount :{{product.amazon_discount}}%</div>
+
+                                <div>Price :₹{{product.product_price}}</div>
+                                <div><span class="offerStyle">offer :₹{{product.amazon_price}}</span></div>
+                            </div>
+                            <div>{{product.product_name}}</div>
+                            <div><button class="btn-primary AmazonBuyBtn mb-2" style="background-color: cornflowerblue;
+                    border: none;
+                    color: white;
+                    border-radius: 3px;
+                    padding: 10px;width: 100%;"><a class="nav-link" href={{product.product_link}}>Buy Amazon</a></button></div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+
+
+</div>
